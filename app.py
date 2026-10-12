@@ -99,6 +99,19 @@ app = FastAPI(title="SWARN-BEEJ")
 
 @app.exception_handler(StarletteHTTPException)
 async def http_exc_handler(request: Request, exc: StarletteHTTPException):
+    if exc.status_code == 404 and not request.url.path.startswith("/api/"):
+        return HTMLResponse(status_code=404, content=(
+            "<!DOCTYPE html><html lang='hi'><head><meta charset='utf-8'>"
+            "<meta name='viewport' content='width=device-width,initial-scale=1'>"
+            "<title>404 - SWARN-BEEJ</title>"
+            "<style>body{font-family:system-ui,sans-serif;background:#fffaf0;color:#1d1c16;"
+            "display:flex;align-items:center;justify-content:center;min-height:90vh;margin:0}"
+            ".c{text-align:center;padding:24px}.b{display:inline-block;margin-top:16px;padding:14px 28px;"
+            "background:#0f3d24;color:#fff;border-radius:14px;text-decoration:none;font-weight:bold}</style></head>"
+            "<body><div class='c'><div style='font-size:64px'>🌾</div>"
+            "<h1>404 — Ye panna nahi mila</h1>"
+            "<p>गलत पता? Home wapas jao.</p>"
+            "<a class='b' href='/'>🏠 Home jao</a></div></body></html>"))
     return JSONResponse(status_code=exc.status_code, content={"ok": False, "error": exc.detail})
 
 @app.exception_handler(RequestValidationError)
