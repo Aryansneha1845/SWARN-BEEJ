@@ -1,0 +1,20 @@
+brand,batch,qr_text,expected,note
+IFFCO,HG563-221,HG563XYZ-GENUINE,GREEN,real guar
+IFFCO,HD2967-110,HD2967-QR-OK,GREEN,real wheat
+KRIBHCO,PUSA44-09,PUSA44-SEALED,GREEN,real paddy
+National Seeds,RH30-55,RH30QR123,GREEN,real mustard
+UPL,SAAF75-20,SAAF75-BATCH20,GREEN,real pesticide
+Syngenta,NK30-77,NK30ORIGINAL77,GREEN,real maize
+IFFCO,HG563-221,,YELLOW,QR blank - bill lo
+IFFCO,HD2967-110,RANDOM-QR-999,YELLOW,reused QR suspect
+KRIBHCO,PUSA44-09,NO-BATCH-HERE,YELLOW,QR me batch nahi
+FAKE-NoLicence,FAKE-1,FAKEXYZ,RED,unlicensed
+SastaBeed,XYZ-123,XYZ123,YELLOW,safe-default unknown brand -> officer verify
+IFFCO,UNKNOWN999,UNKNOWN999,YELLOW,safe-default new batch -> officer verify
+Bayer,BCSUP-12,BCSUP12OLD,GREEN,licensed + valid expiry
+TestCo,OLD99-01,OLD99XYZ,RED,expired licensed stock
+IFFCO,hg563-221,hg563xyz-genuine,GREEN,lowercase check
+ IFFCO , HG563-221 , HG563XYZ ,GREEN,spaces check
+,,HG563XYZ,YELLOW,empty brand+batch never match
+IFFCO,,,YELLOW,empty batch+qr never match
+IFFCO,HG 563-221,HG-563-XYZ,GREEN,hyphen/space normalize
