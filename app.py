@@ -461,7 +461,7 @@ def favicon():
     return FileResponse(str(BASE / "static" / "favicon.svg"))
 
 # ---------- Legal pages (DPDP Act 2023 aligned; solo-project scale) ----------
-GRIEVANCE = "Aryan Singh — [grievance email likhein] (replace before public launch)"
+GRIEVANCE = "Aryan Singh — beastaryan249@gmail.com"
 
 LEGAL_PAGES = {
     "privacy": ("Privacy Policy / गोपनीयता नीति", """
